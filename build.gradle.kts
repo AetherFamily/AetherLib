@@ -14,7 +14,15 @@ plugins {
     id("kr.entree.spigradle") version "2.4.3"
 }
 
-version = "1.1"
+spigot {
+    website = "https://github.com/AetherFamily"
+    authors = listOf("Magnetite", "Willow")
+    apiVersion = "1.19"
+    softDepends = listOf("ProtocolLib")
+    name = "AetherLib"
+}
+
+version = "1.0"
 description = "A library for all Aether related plugins"
 java.sourceCompatibility = JavaVersion.VERSION_17
 group = "com.github.aetherfamily"
@@ -67,7 +75,7 @@ publishing {
         register<MavenPublication>("jitpack") {
             groupId = "com.github.aetherfamily"
             artifactId = "aetherlib"
-            version = "1.1"
+            version = "1.0"
             artifact(tasks.reobfJar) {
                 classifier = "";
             }

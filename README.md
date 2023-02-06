@@ -19,7 +19,7 @@ repositories {
 ```
 ```groovy
 dependencies {
-  implementation 'com.github.aetherfamily:aetherlib:1.1'
+  implementation 'com.github.aetherfamily:aetherlib:1.0'
 }
 ```
 
@@ -34,7 +34,7 @@ dependencies {
 <dependency>
 	<groupId>com.github.aetherfamily</groupId>
 	<artifactId>aetherlib</artifactId>
-	<version>1.1</version>
+	<version>1.0</version>
 </dependency>
   ```
 

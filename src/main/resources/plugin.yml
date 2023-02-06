@@ -1,7 +1,0 @@
-name: AetherLib
-version: '${version}'
-main: com.github.aetherfamily.aetherlib.AetherLib
-api-version: 1.19
-authors: [Magnetite, Willow]
-softdepend: [ProtocolLib]
-description: A library for all Aether related plugins
