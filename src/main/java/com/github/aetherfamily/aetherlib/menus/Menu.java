@@ -139,6 +139,14 @@ public abstract class Menu {
         }).whenComplete((s, error) -> createMenu());
     }
 
+    public void removeItems(int r1, int r2, int c1, int c2) {
+        for (int r = r1; r <= r2; r++)
+            for (int c = c1; c <= c2; c++) {
+                buttons[r][c] = null;
+                inventory.clear(r * 9  + c);
+            }
+    }
+
     public void onClose() {}
 
     protected abstract class AetherRunnable extends BukkitRunnable {
