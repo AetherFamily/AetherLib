@@ -34,6 +34,10 @@ public class Button implements Comparable<Button> {
         return new Button(new ItemStack(mat));
     }
 
+    public static Button of(ItemStack itemStack) {
+        return new Button(itemStack);
+    }
+
     public Button name(String name) {
         final ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(Utils.color(name));
