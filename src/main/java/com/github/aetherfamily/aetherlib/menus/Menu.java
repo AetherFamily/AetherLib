@@ -150,7 +150,7 @@ public abstract class Menu {
     public void onClose() {}
 
     protected abstract class AetherRunnable extends BukkitRunnable {
-        Button button;
+        protected Button button;
         public synchronized @NotNull BukkitTask runTaskTimer(@NotNull Plugin plugin, long delay, long period, Button button) throws IllegalArgumentException, IllegalStateException {
             if (task != null) {
                 task.cancel();
