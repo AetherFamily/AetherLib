@@ -7,6 +7,7 @@ import net.kyori.adventure.sound.Sound;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -72,7 +73,7 @@ public class Button implements Comparable<Button> {
         return this;
     }
 
-    public Button skullOwner(Player player) {
+    public Button skullOwner(OfflinePlayer player) {
         if (!(itemStack.getItemMeta() instanceof SkullMeta meta)) return this;
         meta.setOwningPlayer(player);
         itemStack.setItemMeta(meta);
