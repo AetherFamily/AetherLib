@@ -17,7 +17,7 @@ public class MenuListener implements Listener {
         Menu menu = Menu.getMenu(player);
 
         if (menu != null) {
-            Menu.getMenu(player).onClose();
+            Menu.getMenu(player).handleClose();
             Menu.eraseMenu(player);
         }
     }
@@ -37,6 +37,6 @@ public class MenuListener implements Listener {
         if (menu == null || !e.getInventory().equals(menu.getInventory()))
             return;
 
-        menu.onClick(e);
+        menu.handleClick(e);
     }
 }

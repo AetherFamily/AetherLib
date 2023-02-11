@@ -9,7 +9,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -24,7 +23,6 @@ import java.util.function.Consumer;
 public class Button implements Comparable<Button> {
     private ItemStack itemStack;
     private Consumer<InventoryClickEvent> consumer;
-
     private Sound sound;
 
     private Button(ItemStack itemStack) {
@@ -34,7 +32,6 @@ public class Button implements Comparable<Button> {
     public static Button of(Material mat) {
         return new Button(new ItemStack(mat));
     }
-
     public static Button of(ItemStack itemStack) {
         return new Button(itemStack);
     }
@@ -115,7 +112,7 @@ public class Button implements Comparable<Button> {
         return this;
     }
 
-    public void onPress(InventoryClickEvent e) {
+    public void handleClick(InventoryClickEvent e) {
         if (consumer != null) consumer.accept(e);
         if (sound != null) e.getWhoClicked().playSound(sound);
     }
