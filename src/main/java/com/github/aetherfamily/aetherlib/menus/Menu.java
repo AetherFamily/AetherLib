@@ -36,17 +36,21 @@ public abstract class Menu {
     protected final Player player;
     protected Button[][] buttons;
     protected BukkitTask task;
+    private boolean opened = false;
 
     public Menu(Player player, int size, String title){
         this.player = player;
         inventory = Bukkit.createInventory(null, size, title);
         buttons = new Button[inventory.getSize() / 9][9];
 
-        initializeItems();
-        updateMenu();
     }
 
     public void openMenu() {
+        if (!opened) {
+            initializeItems();
+            opened = true;
+        }
+        updateMenu();
         player.openInventory(inventory);
         menus.put(player, this);
     }
@@ -57,9 +61,9 @@ public abstract class Menu {
         for (int r = 0; r < buttons.length; r++)
             for (int c = 0; c <  9; c++)
                 if (buttons[r][c] != null)
-                    stack[r + c] = buttons[r][c].getItemStack();
+                    stack[r * 9 + c] = buttons[r][c].getItemStack();
                 else
-                    stack[r + c] = null;
+                    stack[r * 9 + c] = null;
 
         inventory.setContents(stack);
     }
