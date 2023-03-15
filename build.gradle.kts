@@ -22,7 +22,7 @@ spigot {
     name = "AetherLib"
 }
 
-version = "1.1-SNAPSHOT"
+version = "1.1"
 description = "A library for all Aether related plugins"
 java.sourceCompatibility = JavaVersion.VERSION_17
 group = "com.github.aetherfamily"
