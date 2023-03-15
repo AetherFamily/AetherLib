@@ -22,7 +22,7 @@ spigot {
     name = "AetherLib"
 }
 
-version = "1.0"
+version = "1.1-SNAPSHOT"
 description = "A library for all Aether related plugins"
 java.sourceCompatibility = JavaVersion.VERSION_17
 group = "com.github.aetherfamily"
@@ -73,9 +73,6 @@ project.tasks.assemble.get().dependsOn(tasks.reobfJar)
 publishing {
     publications {
         register<MavenPublication>("jitpack") {
-            groupId = "com.github.aetherfamily"
-            artifactId = "aetherlib"
-            version = "1.0"
             artifact(tasks.reobfJar) {
                 classifier = "";
             }

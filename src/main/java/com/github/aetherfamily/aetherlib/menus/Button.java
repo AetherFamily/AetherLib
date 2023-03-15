@@ -7,8 +7,8 @@ import net.kyori.adventure.sound.Sound;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -23,7 +23,6 @@ import java.util.function.Consumer;
 public class Button implements Comparable<Button> {
     private ItemStack itemStack;
     private Consumer<InventoryClickEvent> consumer;
-
     private Sound sound;
 
     private Button(ItemStack itemStack) {
@@ -32,6 +31,9 @@ public class Button implements Comparable<Button> {
 
     public static Button of(Material mat) {
         return new Button(new ItemStack(mat));
+    }
+    public static Button of(ItemStack itemStack) {
+        return new Button(itemStack);
     }
 
     public Button name(String name) {
@@ -68,7 +70,7 @@ public class Button implements Comparable<Button> {
         return this;
     }
 
-    public Button skullOwner(Player player) {
+    public Button skullOwner(OfflinePlayer player) {
         if (!(itemStack.getItemMeta() instanceof SkullMeta meta)) return this;
         meta.setOwningPlayer(player);
         itemStack.setItemMeta(meta);
@@ -110,7 +112,7 @@ public class Button implements Comparable<Button> {
         return this;
     }
 
-    public void onPress(InventoryClickEvent e) {
+    public void handleClick(InventoryClickEvent e) {
         if (consumer != null) consumer.accept(e);
         if (sound != null) e.getWhoClicked().playSound(sound);
     }
